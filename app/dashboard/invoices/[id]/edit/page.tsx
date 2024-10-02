@@ -30,3 +30,7 @@ export default async function Page({ params }: {params: { id: string } }) {
     </main>
   );
 }
+
+export const metadata: Metadata = {
+  title: 'Edit Invoice',
+};

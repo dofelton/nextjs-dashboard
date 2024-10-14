@@ -8,6 +8,10 @@ import { Suspense } from 'react';
 import { fetchInvoicesPages } from '@/app/lib/data';
 import { Metadata } from 'next';
 
+export const metadata: Metadata = {
+  title: 'Invoices',
+};
+
 export default async function Page({
   searchParams,
 }: {
@@ -30,7 +34,7 @@ export default async function Page({
         <Search placeholder="Search invoices..." />
         <CreateInvoice />
       </div>
-       <Suspense key={query + currentPage} fallback={<InvoicesTableSkeleton />}>
+      <Suspense key={query + currentPage} fallback={<InvoicesTableSkeleton />}>
         <Table query={query} currentPage={currentPage} />
       </Suspense>
       <div className="mt-5 flex w-full justify-center">
@@ -39,7 +43,3 @@ export default async function Page({
     </div>
   );
 }
-
-export const metadata: Metadata = {
-  title: 'Invoices',
-};
